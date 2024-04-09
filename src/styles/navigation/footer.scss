@@ -1,0 +1,36 @@
+.footer-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  background-color: whitesmoke;
+  border: 4px double black;
+  margin-left: -4px;
+  width: 100%;
+  height: 10%;
+  position: fixed;
+  bottom: 0;
+}
+
+.footer-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  font-size: 20px;
+  margin-right: 20px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 20%;
+
+  svg {
+    font-size: 24px;
+    color: black;
+  }
+
+  svg:hover {
+    cursor: pointer;
+    color: black;
+    transform: scale(0.9);
+  }
+}
