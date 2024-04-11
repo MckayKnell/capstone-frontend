@@ -1,0 +1,45 @@
+.login-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 850px;
+  width: 100%;
+  margin-top: 8%;
+  margin-bottom: 8%;
+  background-image: url("../../assets/images/palm.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  gap: 50px;
+
+  .title-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 20%;
+    color: whitesmoke;
+    font-size: 150px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    width: 40%;
+    margin-bottom: 350px;
+
+    input {
+      background-color: whitesmoke;
+      width: 100%;
+      height: 30px;
+      font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+        "Lucida Sans", Arial, sans-serif;
+      border: 5px solid black;
+    }
+  }
+}

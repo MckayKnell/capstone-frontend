@@ -1,7 +1,16 @@
-export default function Services(props) {
+import ServiceCard from "../components/service-card";
+
+export default function Services() {
   return (
-    <div>
-      <h1>Services Heading</h1>
+    <div className="service-page-container">
+      <ServiceCard />
+      <ServiceCard />
+      <ServiceCard />
+      <ServiceCard />
+      <ServiceCard />
+      <ServiceCard />
+      <ServiceCard />
+      <ServiceCard />
     </div>
   );
 }

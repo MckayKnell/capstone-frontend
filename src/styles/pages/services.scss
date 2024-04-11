@@ -1,0 +1,69 @@
+.service-page-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 50px;
+  gap: 50px;
+  height: 100%;
+  width: 80%;
+  margin-top: 8%;
+  margin-bottom: 8%;
+
+  .service-card-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 28%;
+    height: 500px;
+    font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+      "Lucida Sans", Arial, sans-serif;
+    color: grey;
+    transition: ease-in 0.2s;
+    border-right: 4px solid white;
+
+    &:hover {
+      cursor: pointer;
+      transform: scale(1.1);
+      box-shadow: 12px 12px 2px 1px grey;
+    }
+
+    .title-wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 4px double black;
+      width: 100%;
+      height: 20%;
+    }
+
+    .description-wrapper {
+      background-image: url("../../assets/images/shore.jpg");
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      color: white;
+      text-shadow: black;
+      border-left: 4px double black;
+      border-right: 4px double black;
+    }
+
+    .price-wrapper {
+      border: 4px double black;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 20%;
+    }
+  }
+}
