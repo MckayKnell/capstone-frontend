@@ -8,7 +8,11 @@ export default function ServiceCard() {
         recusandae, quo facilis id omnis eos doloribus? Eum quasi aut quidem et
         maxime excepturi alias illum repellendus ipsum sit, neque laborum.
       </div>
-      <div className="price-wrapper">Price</div>
+      <div className="bottom-wrapper">
+        <div className="price-wrapper">$</div>
+        <div className="add-to-cart-wrapper">cart</div>
+        <div className="quantity">+ - </div>
+      </div>
     </div>
   );
 }
