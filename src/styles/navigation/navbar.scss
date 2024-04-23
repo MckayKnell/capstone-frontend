@@ -13,10 +13,8 @@
   svg {
     background-color: white;
     padding: 12px 20px;
-    border-radius: 10%;
+    border-radius: 25px;
     border: 1px solid black;
-    // width: 50px;
-    // height: 20px;
   }
 
   a {
@@ -35,6 +33,7 @@
     &:hover {
       font-size: 14px;
       color: black;
+      transition: ease-in 0.2s;
     }
   }
   .nav-left {
@@ -48,7 +47,6 @@
         Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
         sans-serif;
 
-      // text-shadow: 2px 2px gray;
       text-decoration: underline;
       &:hover {
         font-size: 20px;

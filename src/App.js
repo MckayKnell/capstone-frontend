@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import {
   BrowserRouter as Router,
@@ -26,14 +26,15 @@ initIcons();
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(false);
+
   return (
     <div className="App">
       <Router>
         <AppNavigation />
         <div className="page-container">
           <Switch>
-            <Route exact path="/" component={Home} />
             <Route path="/login" component={Login} />
+            <Route exact path="/" component={Home} />
             <Route path="/home" component={Home} />
             <Route path="/about" component={About} />
             <Route path="/contact" component={Contact} />

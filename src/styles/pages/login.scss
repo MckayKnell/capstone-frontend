@@ -3,11 +3,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 850px;
+  height: 100vh;
   width: 100%;
-  margin-top: 8%;
-  margin-bottom: 8%;
-  background-image: url("../../assets/images/palm.jpg");
+  // margin-top: 8%;
+  // margin-bottom: 8%;
+  background-image: url("../../assets/images/surf.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   gap: 50px;
@@ -19,10 +19,15 @@
     align-items: center;
     width: 50%;
     height: 20%;
-    color: whitesmoke;
-    font-size: 150px;
+    color: white;
+    text-shadow: 10px 10px gray;
+    border-radius: 20px;
+    border: 20px double whitesmoke;
+    background-color: lightgray;
+    font-size: 100px;
     font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
       "Lucida Sans", Arial, sans-serif;
+    margin-top: 150px;
   }
   form {
     display: flex;
@@ -42,6 +47,14 @@
         "Lucida Sans", Arial, sans-serif;
       border: 5px solid darkgray;
       font-size: 15px;
+      outline-color: burlywood;
+      border-radius: 20px;
+
+      &:hover {
+        cursor: pointer;
+        color: white;
+        background-color: gray;
+      }
     }
   }
 }

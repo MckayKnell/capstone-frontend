@@ -1,15 +1,18 @@
 import { useState, useContext } from "react";
-import { UserContext } from "../components/user.provider";
+import { UseAuthInfo } from "../context/AuthProvider";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
-  const { user, setUser } = useContext(UserContext);
-  const [username, setUsername] = useState("");
+  const { login, userInfo } = UseAuthInfo();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const history = useHistory();
 
   function handleSubmit(e) {
     e.preventDefault();
-    setTimeout(() => setUser({ username: username, email: email }), 3000);
-    console.log(user);
+    login(email, password);
+    console.log(userInfo);
+    history.push("/home");
   }
 
   return (
@@ -17,18 +20,18 @@ export default function Login() {
       <div className="title-wrapper">Login</div>
       <form onSubmit={handleSubmit}>
         <input
-          type="username"
-          value={username}
-          placeholder="username"
-          onChange={(e) => setUsername(e.target.value)}
-        />
-        <input
           type="email"
           value={email}
           placeholder="email"
           onChange={(e) => setEmail(e.target.value)}
         />
-        <input type="submit" value="Add User Info" />
+        <input
+          type="password"
+          value={password}
+          placeholder="password"
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <input type="submit" value="Submit" />
       </form>
     </div>
   );

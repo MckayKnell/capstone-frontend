@@ -1,17 +1,16 @@
-export default function ServiceCard() {
-  // const {} = props.todo;
+import { useState, useEffect } from "react";
+
+export default function ServiceCard({ service }) {
+  console.log(service);
+  const { service_name, description, price, quantity } = service;
   return (
     <div className="service-card-container">
-      <div className="title-wrapper">Header</div>
-      <div className="description-wrapper">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-        recusandae, quo facilis id omnis eos doloribus? Eum quasi aut quidem et
-        maxime excepturi alias illum repellendus ipsum sit, neque laborum.
-      </div>
+      <div className="title-wrapper">{service_name}</div>
+      <div className="description-wrapper">{description}</div>
       <div className="bottom-wrapper">
-        <div className="price-wrapper">$</div>
+        <div className="price-wrapper">${price}</div>
         <div className="add-to-cart-wrapper">cart</div>
-        <div className="quantity">+ - </div>
+        <div className="quantity">+ {quantity} - </div>
       </div>
     </div>
   );

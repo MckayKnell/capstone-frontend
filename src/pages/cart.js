@@ -1,21 +1,15 @@
-import ServiceCard from "../components/service-card";
+// import ServiceCard from "../components/service-card";
+import { CartContextProvider } from "../context/CartProvider";
 
 export default function Cart(props) {
   return (
     <div className="cart-container">
       <div className="cart-title">CART</div>
-      <div className="cart-wrapper">
-        <ServiceCard />
-        <ServiceCard />
-        <ServiceCard />
-        <ServiceCard />
-        <ServiceCard />
-        <ServiceCard />
+      <div className="cart-wrapper">{/* <CartContextProvider /> */}</div>
+      <div className="total-container">
+        <div className="total-title">Total:</div>
+        <div className="total-wrapper"></div>
       </div>
-      <div className="products-title">PRODUCTS</div>
-      <div className="product-wrapper"></div>
-      <div className="products-title">CHECKOUT</div>
-      <div className="product-wrapper"></div>
     </div>
   );
 }
