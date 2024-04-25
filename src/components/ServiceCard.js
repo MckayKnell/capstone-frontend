@@ -6,12 +6,6 @@ export default function ServiceCard({ service }) {
   const { setCart } = useCart();
   const { service_name, description, price, quantity } = service;
 
-  const handleDecrement = (service) => {
-    setCart(quantity);
-  };
-
-  const handleIncrement = (service_id) => {};
-
   return (
     <div className="service-card-container">
       <div className="title-wrapper">{service_name}</div>
@@ -27,9 +21,9 @@ export default function ServiceCard({ service }) {
           Add to Cart
         </button>
         <div className="quantity">
-          <button onClick={() => handleDecrement(service.service_id)}>+</button>
+          {/* <button onClick={() => handleDecrement(service.service_id)}>+</button> */}
           {quantity}
-          <button onClick={() => handleIncrement(service.service_id)}>-</button>
+          {/* <button onClick={() => handleIncrement(service.service_id)}>-</button> */}
         </div>
       </div>
     </div>
