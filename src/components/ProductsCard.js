@@ -1,5 +1,4 @@
 export default function ProductsCard() {
-  // const {} = props.todo;
   return (
     <div className="products-card-container">
       <div className="title-wrapper">Header</div>

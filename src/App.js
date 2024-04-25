@@ -15,17 +15,22 @@ import AppNavigation from "./navigation/AppNavigation";
 import initIcons from "./components/helpers/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import Login from "./pages/login";
-import About from "./pages/about";
-import Cart from "./pages/cart";
-import Contact from "./pages/contact";
-import Home from "./pages/home";
-import Services from "./pages/services";
+import { UseAuthInfo } from "./context/AuthProvider";
+
+import Login from "./pages/Login";
+import AdminPage from "./pages/AdminPage";
+import About from "./pages/About";
+import Cart from "./pages/Cart";
+import Contact from "./pages/Contact";
+import Home from "./pages/Home";
+import Services from "./pages/Services";
 
 initIcons();
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(false);
+  const { userInfo } = UseAuthInfo();
+  const role = userInfo?.auth_info?.user?.role;
 
   return (
     <div className="App">
@@ -40,6 +45,7 @@ export default function App() {
             <Route path="/contact" component={Contact} />
             <Route path="/services" component={Services} />
             <Route path="/cart" component={Cart} />
+            {role === "admin" && <Route path="/admin" component={AdminPage} />}
           </Switch>
         </div>
         <div className="footer-container">

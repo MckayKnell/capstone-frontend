@@ -5,6 +5,8 @@ const AuthContext = createContext("");
 export const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
 
+  function checkLogin() {}
+
   function login(email, password) {
     const loginBody = {
       email: email,
