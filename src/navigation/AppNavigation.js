@@ -1,20 +1,14 @@
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useLocation, useHistory } from "react-router-dom";
-import { UseAuthInfo } from "../context/AuthProvider";
+import { useAuthInfo } from "../context/AuthProvider";
 
 export default function AppNavigation() {
   const location = useLocation();
-  const { userInfo } = UseAuthInfo();
-  const history = useHistory();
+  const { userInfo } = useAuthInfo();
   const role = userInfo?.auth_info?.user?.role;
 
   if (location.pathname === "/login") {
-    return null;
-  }
-
-  if (!userInfo) {
-    history.push("/login");
     return null;
   }
 

@@ -5,9 +5,8 @@ const AuthContext = createContext("");
 export const AuthProvider = ({ children }) => {
   const [userInfo, setUserInfo] = useState(null);
 
-  function checkLogin() {}
-
   function login(email, password) {
+    clearUserInfo();
     const loginBody = {
       email: email,
       password: password,
@@ -21,22 +20,30 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify(loginBody),
     })
       .then((response) => {
-        return response.json();
+        if (!response.ok) {
+        } else {
+          return response.json();
+        }
       })
       .then((data) => {
         setUserInfo(data);
-        console.log(userInfo);
+        // console.log(userInfo);
       })
       .catch((error) => {
+        clearUserInfo();
         console.error("Error:", error);
       });
   }
 
-  const values = { userInfo, login };
+  function clearUserInfo() {
+    setUserInfo(null);
+  }
+
+  const values = { userInfo, login, clearUserInfo };
 
   return <AuthContext.Provider value={values}>{children}</AuthContext.Provider>;
 };
 
-export const UseAuthInfo = () => {
+export const useAuthInfo = () => {
   return useContext(AuthContext);
 };

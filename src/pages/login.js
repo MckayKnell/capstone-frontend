@@ -1,19 +1,24 @@
-import { useState, useContext } from "react";
-import { UseAuthInfo } from "../context/AuthProvider";
+import { useState, useEffect, useContext } from "react";
+import { useAuthInfo } from "../context/AuthProvider";
 import { useHistory } from "react-router-dom";
 
 export default function Login() {
-  const { login, userInfo } = UseAuthInfo();
+  const { login, userInfo, clearUserInfo } = useAuthInfo();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    login(email, password);
+    await login(email, password);
     console.log(userInfo);
-    history.push("/home");
   }
+
+  useEffect(() => {
+    if (userInfo) {
+      history.push("/home");
+    }
+  }, [userInfo]);
 
   return (
     <div className="login-container">

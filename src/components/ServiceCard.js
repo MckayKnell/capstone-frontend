@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import addToCart from "./helpers/addToCart";
 import { CartContextProvider, useCart } from "../context/CartProvider";
 
 export default function ServiceCard({ service }) {
   const { setCart } = useCart();
-  const { service_name, description, price, quantity } = service;
+  const { service_name, description, price, quantity, service_id } = service;
 
   return (
     <div className="service-card-container">
-      <div className="title-wrapper">{service_name}</div>
+      <Link className="title-wrapper" to={`/services/${service_id}`}>
+        {service_name}
+      </Link>
       <div className="description-wrapper">{description}</div>
       <div className="bottom-wrapper">
         <div className="price-wrapper">${price}</div>
@@ -27,5 +30,6 @@ export default function ServiceCard({ service }) {
         </div>
       </div>
     </div>
+    //{" "}
   );
 }

@@ -11,11 +11,12 @@ import {
 import "./styles/imports.scss";
 
 import AppNavigation from "./navigation/AppNavigation";
+import PrivateRoute from "./navigation/PrivateRoutes";
 
 import initIcons from "./components/helpers/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { UseAuthInfo } from "./context/AuthProvider";
+import { useAuthInfo } from "./context/AuthProvider";
 
 import Login from "./pages/Login";
 import AdminPage from "./pages/AdminPage";
@@ -24,12 +25,16 @@ import Cart from "./pages/Cart";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Services from "./pages/Services";
+import Service from "./pages/Service";
+import Extensions from "./pages/Extensions";
+import Consultation from "./pages/Consultation";
 
 initIcons();
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(false);
-  const { userInfo } = UseAuthInfo();
+  const { userInfo } = useAuthInfo();
+
   const role = userInfo?.auth_info?.user?.role;
 
   return (
@@ -39,13 +44,19 @@ export default function App() {
         <div className="page-container">
           <Switch>
             <Route path="/login" component={Login} />
-            <Route exact path="/" component={Home} />
-            <Route path="/home" component={Home} />
-            <Route path="/about" component={About} />
-            <Route path="/contact" component={Contact} />
-            <Route path="/services" component={Services} />
-            <Route path="/cart" component={Cart} />
-            {role === "admin" && <Route path="/admin" component={AdminPage} />}
+
+            <PrivateRoute exact path="/" component={Home} />
+            <PrivateRoute path="/home" component={Home} />
+            <PrivateRoute path="/about" component={About} />
+            <PrivateRoute path="/contact" component={Contact} />
+            <PrivateRoute exact path="/services" component={Services} />
+            <PrivateRoute path="/services/:id" component={Service} />
+            <PrivateRoute path="/extensions" component={Extensions} />
+            <PrivateRoute path="/consultation" component={Consultation} />
+            <PrivateRoute path="/cart" component={Cart} />
+            {role === "admin" && (
+              <PrivateRoute path="/admin" component={AdminPage} />
+            )}
           </Switch>
         </div>
         <div className="footer-container">
